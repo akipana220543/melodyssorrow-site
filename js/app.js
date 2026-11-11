@@ -12,7 +12,7 @@ async function boot(keep){
 document.body.classList.toggle('prot',!!s.protect);
   bar.hidden=!(s.banner.on&&s.banner.text);bar.textContent=s.banner.text;
   brand.innerHTML=(s.logo?`<img src="${esc(s.logo)}" alt="${s.logoHideName?esc(s.name):''}">`:'')+(s.logo&&s.logoHideName?'':`<span>${esc(s.name)}</span>`);
-  if(s.logo)document.querySelector('link[rel=icon]').href=s.logo;
+  const ic=s.favicon||s.logo;if(ic){document.querySelector('link[rel=icon]').href=ic;let a=document.querySelector('link[rel=apple-touch-icon]');if(!a){a=document.createElement('link');a.rel='apple-touch-icon';document.head.append(a)}a.href=ic}
   nav.innerHTML=[{id:'home',title:'Home'},...s.tabs].map(t=>`<a href="#${esc(t.id)}" data-id="${esc(t.id)}">${esc(t.title)}</a>`).join('');
   foot.innerHTML=`© ${new Date().getFullYear()} ${esc(s.name)}. Artwork may not be copied, traced, or used for AI training.`;
   route(keep);
