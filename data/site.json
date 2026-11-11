@@ -1,9 +1,9 @@
 {
  "theme": {
-  "bg": "#fbfbfc",
-  "ink": "#1b1d24",
-  "mute": "#767b88",
-  "acc": "#3b4cca",
+  "bg": "#14151a",
+  "ink": "#f1f1f4",
+  "mute": "#8d90a0",
+  "acc": "#8fa0ff",
   "font": "Bricolage Grotesque",
   "r": 14
  },
