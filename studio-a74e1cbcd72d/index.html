@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../">
+<link rel="icon" href="data:,"><title>Studio</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<script>
+/* Deterrent only: static hosting cannot send X-Robots-Tag headers, so blank the page for
+   automated browsers and well-known crawlers. The GitHub token is the real lock. */
+if(navigator.webdriver||/bot|crawl|spider|slurp|scrape|headless|gpt|claude|anthropic|ccbot|bytespider|petalbot|facebookexternalhit|preview/i.test(navigator.userAgent)){
+  document.documentElement.innerHTML='';throw new Error('stop');
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="studio-a74e1cbcd72d/admin.css">
+</head><body><div class="shell" data-view="edit">
+<div class="mtabs" id="mtabs"><button data-v="edit" class="mon">Edit</button><button data-v="preview">Preview</button></div>
+<div class="side"><div class="top"><b>Admin</b><span id="badge"></span><button class="go" id="pub">Publish</button></div><div class="tabs" id="tabs"></div><div class="adm" id="app"></div></div>
+<iframe id="pv" src="index.html?preview" title="Live preview"></iframe></div>
+<script type="module" src="studio-a74e1cbcd72d/admin.js"></script></body></html>

@@ -1,0 +1,197 @@
+{
+ "name": "Your Name",
+ "tagline": "Digital artist. Pixel art, illustration and commissions.",
+ "bio": "Replace this with a short bio in the admin panel.",
+ "watermark": "YOUR NAME",
+ "protect": true,
+ "pixel": true,
+ "links": [
+  {
+   "label": "Commissions",
+   "url": "#commission-sheet"
+  },
+  {
+   "label": "Patreon",
+   "url": "https://patreon.com"
+  },
+  {
+   "label": "Twitter",
+   "url": "https://twitter.com"
+  }
+ ],
+ "tabs": [
+  {
+   "id": "commission-sheet",
+   "title": "Commission Sheet",
+   "type": "cards",
+   "desc": "Prices and how to order.",
+   "cards": [
+    {
+     "title": "Sketch",
+     "price": "$10",
+     "desc": "Clean line sketch\nOne character\nReady in about 3 days"
+    },
+    {
+     "title": "Flat colour",
+     "price": "$25",
+     "desc": "Line art with flat colours\nSimple background\nReady in about a week"
+    },
+    {
+     "title": "Full render",
+     "price": "$50",
+     "desc": "Shading and highlights\nCustom background\nReady in about 2 weeks"
+    }
+   ]
+  },
+  {
+   "id": "recent-art",
+   "title": "Recent Art",
+   "type": "gallery",
+   "desc": "Personal pieces I have finished lately.",
+   "images": [
+    {
+     "src": "#c9d1c4",
+     "title": "Placeholder 1"
+    },
+    {
+     "src": "#d8c9bd",
+     "title": "Placeholder 2"
+    },
+    {
+     "src": "#bfc9d4",
+     "title": "Placeholder 3"
+    },
+    {
+     "src": "#d9d2b8",
+     "title": "Placeholder 4"
+    },
+    {
+     "src": "#cdbfd0",
+     "title": "Placeholder 5"
+    },
+    {
+     "src": "#b9cfcb",
+     "title": "Placeholder 6"
+    },
+    {
+     "src": "#e0c4c4",
+     "title": "Placeholder 7"
+    },
+    {
+     "src": "#c4c9e0",
+     "title": "Placeholder 8"
+    }
+   ]
+  },
+  {
+   "id": "commissioned",
+   "title": "Commissioned Art",
+   "type": "gallery",
+   "desc": "Work made for clients.",
+   "images": [
+    {
+     "src": "#d9d2b8",
+     "title": "Placeholder 1"
+    },
+    {
+     "src": "#cdbfd0",
+     "title": "Placeholder 2"
+    },
+    {
+     "src": "#b9cfcb",
+     "title": "Placeholder 3"
+    },
+    {
+     "src": "#e0c4c4",
+     "title": "Placeholder 4"
+    },
+    {
+     "src": "#c4c9e0",
+     "title": "Placeholder 5"
+    },
+    {
+     "src": "#c9d1c4",
+     "title": "Placeholder 6"
+    }
+   ]
+  },
+  {
+   "id": "manga",
+   "title": "Manga",
+   "type": "gallery",
+   "desc": "Pages and panels.",
+   "images": [
+    {
+     "src": "#b9cfcb",
+     "title": "Placeholder 1"
+    },
+    {
+     "src": "#e0c4c4",
+     "title": "Placeholder 2"
+    },
+    {
+     "src": "#c4c9e0",
+     "title": "Placeholder 3"
+    },
+    {
+     "src": "#c9d1c4",
+     "title": "Placeholder 4"
+    },
+    {
+     "src": "#d8c9bd",
+     "title": "Placeholder 5"
+    }
+   ]
+  }
+ ],
+ "theme": {
+  "bg": "#fbfbfc",
+  "ink": "#1b1d24",
+  "mute": "#767b88",
+  "acc": "#3b4cca",
+  "font": "Bricolage Grotesque",
+  "r": 14
+ },
+ "looks": [
+  {
+   "name": "Halloween",
+   "theme": {
+    "bg": "#17101f",
+    "ink": "#f6e7d2",
+    "mute": "#a58fb5",
+    "acc": "#ff7a1a",
+    "font": "Fraunces",
+    "r": 10
+   },
+   "from": "10-20",
+   "to": "11-01"
+  },
+  {
+   "name": "Winter",
+   "theme": {
+    "bg": "#f2f7fb",
+    "ink": "#1d2b3a",
+    "mute": "#6c8499",
+    "acc": "#2f8fd6",
+    "font": "Fraunces",
+    "r": 18
+   },
+   "from": "12-01",
+   "to": "12-31"
+  }
+ ],
+ "look": "",
+ "banner": {
+  "on": false,
+  "text": ""
+ },
+ "fonts": [],
+ "logo": "",
+ "logoHideName": false,
+ "hero": {
+  "dim": 45
+ },
+ "pageBg": {
+  "vis": 25
+ }
+}
