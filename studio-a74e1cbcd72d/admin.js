@@ -46,7 +46,10 @@ ${d.hero.src?`<label>Image darkness<input type="range" min="0" max="80" data-p="
 <section class="card"><h2>Logo</h2>${d.logo?`<img src="${esc(d.logo)}" alt="" style="height:3rem;width:auto;align-self:start;border-radius:6px;background:repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 0 0/12px 12px">`:''}
 <label class="drop" data-logo="1">${d.logo?'Replace logo':'Add a logo (optional)'}<input type="file" accept="image/*" hidden data-logo="1"></label>
 ${d.logo?`<label><input type="checkbox" data-c="logoHideName" ${d.logoHideName?'checked':''}> Show only the logo in the header</label><button data-a="lr">Remove logo</button>`:''}
-<p class="hint">A PNG with a transparent background works best. It also becomes the browser tab icon.</p></section>
+<p class="hint">A PNG with a transparent background works best. It is used as the browser tab icon too, unless you set a separate site icon below.</p></section>
+<section class="card"><h2>Site icon</h2><p class="hint">The little picture on the browser tab and when someone saves the site to their phone’s home screen. Use a square image; it is shrunk to 256×256 and kept whole.</p>${d.favicon?`<img src="${esc(d.favicon)}" alt="" style="height:3rem;width:3rem;align-self:start;border-radius:6px;background:repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 0 0/12px 12px">`:''}
+<label class="drop" data-fav="1">${d.favicon?'Replace site icon':'Add a site icon'}<input type="file" accept="image/*" hidden data-fav="1"></label>
+${d.favicon?'<button data-a="fr">Remove site icon</button>':'<p class="hint">No site icon set, so the logo (if any) is used.</p>'}</section>
 <section class="card"><h2>Page background</h2>
 <label class="drop" data-pg="1">${d.pageBg.src?'Replace the page background':'Add a background image for the whole site (optional)'}<input type="file" accept="image/*" hidden data-pg="1"></label>
 ${d.pageBg.src?`<label>Image visibility<input type="range" min="5" max="100" data-p="pageBg.vis" value="${d.pageBg.vis??25}"></label><button data-a="pr">Remove page background</button>`:''}
@@ -138,6 +141,7 @@ app.addEventListener('click',async e=>{const b=e.target.closest('button');if(!b|
   if(a=='pr'){delete d.pageBg.src;delete d.pageBg.px}
   if(a=='hr'){delete d.hero.src;delete d.hero.px}
   if(a=='lr'){d.logo=''}
+  if(a=='fr'){d.favicon=''}
   if(a=='dc')T.cards.splice(n,1);
   if(a=='cr')for(const k of['tc','pc','bc','font','al'])delete T.cards[n][k];
   if(a=='cs'){const c=T.cards[n];for(const o of T.cards)if(o!==c)for(const k of['tc','pc','bc','font','al'])c[k]?o[k]=c[k]:delete o[k]}
@@ -182,9 +186,15 @@ async function logoImg(f){
   c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);
   d.logo=c.toDataURL('image/png');save();render();
 }
+async function favImg(f){
+  if(!f||!f.type.startsWith('image/'))return;
+  const bm=await createImageBitmap(f),m=Math.max(bm.width,bm.height),S=256,sm=m>128,k=sm?S/m:Math.max(1,Math.floor(S/m)),w=Math.round(bm.width*k),h=Math.round(bm.height*k),c=document.createElement('canvas');
+  c.width=c.height=S;const x=c.getContext('2d');x.imageSmoothingEnabled=sm;x.imageSmoothingQuality='high';x.drawImage(bm,Math.round((S-w)/2),Math.round((S-h)/2),w,h);
+  d.favicon=c.toDataURL('image/png');save();render();toast('Icon set. Publish to put it online.');
+}
 async function heroImg(f){if(!f||!f.type.startsWith('image/'))return;Object.assign(d.hero,await mark(f,false));save();render()}
 async function pageImg(f){if(!f||!f.type.startsWith('image/'))return;Object.assign(d.pageBg,await mark(f,false,1920));save();render()}
-const dispatch=(ds,fl)=>ds.logo!==undefined?logoImg(fl[0]):ds.pg!==undefined?pageImg(fl[0]):ds.h!==undefined?heroImg(fl[0]):ds.k!==undefined?cardImg(+ds.t,+ds.k,fl[0]):addFiles(+ds.t,fl);
+const dispatch=(ds,fl)=>ds.fav!==undefined?favImg(fl[0]):ds.logo!==undefined?logoImg(fl[0]):ds.pg!==undefined?pageImg(fl[0]):ds.h!==undefined?heroImg(fl[0]):ds.k!==undefined?cardImg(+ds.t,+ds.k,fl[0]):addFiles(+ds.t,fl);
 async function up(o,k){const v=o[k];if(!v?.startsWith('data:'))return;const p='images/'+crypto.randomUUID().replace(/-/g,'').slice(0,14)+'.'+(v.startsWith('data:image/png')?'png':'jpg');toast('Uploading '+p);await put(p,v.split(',')[1]);o[k]=p}
 async function addFiles(ti,files){
   for(const f of files){if(!f.type.startsWith('image/'))continue;d.tabs[ti].images.push({...await mark(f),title:f.name.replace(/\.[^.]+$/,'')})}
@@ -200,7 +210,7 @@ async function put(path,b64){
 async function publish(){
   if(!gh.repo||!gh.token){tab='Publish';render();return toast('Connect to GitHub first.')}
   try{
-    await up(d,'logo');await up(d.hero,'src');await up(d.pageBg,'src');
+    await up(d,'logo');await up(d,'favicon');await up(d.hero,'src');await up(d.pageBg,'src');
     for(const t of d.tabs)for(const im of [...(t.images||[]),...(t.cards||[])])if(im.src?.startsWith('data:')){
       const p='images/'+crypto.randomUUID().replace(/-/g,'').slice(0,14)+'.'+(im.src.startsWith('data:image/png')?'png':'jpg');toast('Uploading '+p);
       await put(p,im.src.split(',')[1]);im.src=p}
