@@ -1,5 +1,50 @@
 {
- "name": "Your Name",
+ "theme": {
+  "bg": "#fbfbfc",
+  "ink": "#1b1d24",
+  "mute": "#767b88",
+  "acc": "#3b4cca",
+  "font": "Bricolage Grotesque",
+  "r": 14
+ },
+ "looks": [
+  {
+   "name": "Halloween",
+   "theme": {
+    "bg": "#17101f",
+    "ink": "#f6e7d2",
+    "mute": "#a58fb5",
+    "acc": "#ff7a1a",
+    "font": "Fraunces",
+    "r": 10
+   },
+   "from": "10-20",
+   "to": "11-01"
+  },
+  {
+   "name": "Winter",
+   "theme": {
+    "bg": "#f2f7fb",
+    "ink": "#1d2b3a",
+    "mute": "#6c8499",
+    "acc": "#2f8fd6",
+    "font": "Fraunces",
+    "r": 18
+   },
+   "from": "12-01",
+   "to": "12-31"
+  }
+ ],
+ "fonts": [],
+ "logo": "",
+ "hero": {
+  "dim": 45
+ },
+ "pageBg": {
+  "vis": 25
+ },
+ "look": "",
+ "name": "Melodyssorow",
  "tagline": "Digital artist. Pixel art, illustration and commissions.",
  "bio": "Replace this with a short bio in the admin panel.",
  "watermark": "YOUR NAME",
@@ -144,54 +189,9 @@
    ]
   }
  ],
- "theme": {
-  "bg": "#fbfbfc",
-  "ink": "#1b1d24",
-  "mute": "#767b88",
-  "acc": "#3b4cca",
-  "font": "Bricolage Grotesque",
-  "r": 14
- },
- "looks": [
-  {
-   "name": "Halloween",
-   "theme": {
-    "bg": "#17101f",
-    "ink": "#f6e7d2",
-    "mute": "#a58fb5",
-    "acc": "#ff7a1a",
-    "font": "Fraunces",
-    "r": 10
-   },
-   "from": "10-20",
-   "to": "11-01"
-  },
-  {
-   "name": "Winter",
-   "theme": {
-    "bg": "#f2f7fb",
-    "ink": "#1d2b3a",
-    "mute": "#6c8499",
-    "acc": "#2f8fd6",
-    "font": "Fraunces",
-    "r": 18
-   },
-   "from": "12-01",
-   "to": "12-31"
-  }
- ],
- "look": "",
  "banner": {
   "on": false,
   "text": ""
  },
- "fonts": [],
- "logo": "",
- "logoHideName": false,
- "hero": {
-  "dim": 45
- },
- "pageBg": {
-  "vis": 25
- }
+ "logoHideName": false
 }
